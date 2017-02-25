@@ -1,0 +1,3 @@
+rootProject.name = 'WICKED'
+
+include ':app'
