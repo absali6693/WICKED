@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+
 import {
   Text,
   StyleSheet,
   View,
-  Image,
-  TextInput,
 } from 'react-native';
 
 import SignUpActions from '../actions';
 import SignUpButton from '../components/SignUpButton';
+import TextField from '../components/TextField';
 import sceneGenerator from '../../../utils/sceneGenerator';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   countText: {
@@ -23,22 +24,34 @@ const styles = StyleSheet.create({
 });
 
 export const SignUp = props => (
-  <View style={{ flex: 1, backgroundColor: 'blue', padding: 10 }}>
+  <View style={{ flex: 1, backgroundColor: 'grey', padding: 10 }}>
     <View style={{ flex: 1 }} />
     <View style={{ flex: 1 }}>
-      <View style={{ flexDirection: 'row', backgroundColor: 'rgba(0, 0, 0, 0.2)', borderColor: 'white', borderRadius: 15, borderWidth: 2, height: 35, flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Image
-            style={{ height: 40, width: 40 }}
-            source={require('../../../../assets/images/name.png')}
-          />
-        </View>
-        <View style={{ flex: 5, borderBottomColor: 'white', borderBottomWidth: 1, marginRight: 30, marginBottom: -10, height: 20 }}>
-          <TextInput
-            style={{ flex: 1, color: 'white', fontSize: 20 }}
-          />
-        </View>
-      </View>
+      <TextField
+        style={{ height: 65 }}
+        label={'Name'}
+        iconClass={FontAwesomeIcon}
+        iconName={'user'}
+        iconColor={'steelblue'}
+        onChangeText={(text) => {
+        }}
+      />
+      <TextField
+        style={{ height: 65 }}
+        label={'Email'}
+        iconClass={FontAwesomeIcon}
+        iconName={'envelope'}
+        iconColor={'steelblue'}
+        keyboardType="email-address"
+      />
+      <TextField
+        style={{ height: 65 }}
+        label={'Phone Number'}
+        iconClass={FontAwesomeIcon}
+        iconName={'phone'}
+        iconColor={'steelblue'}
+        keyboardType="numeric"
+      />
       <SignUpButton color={'green'} title={' + 1 '} onPress={props.increment} />
       <Text style={styles.countText}> { props.count } </Text>
       <SignUpButton color={'red'} title={' - 1 '} onPress={props.decrement} />
