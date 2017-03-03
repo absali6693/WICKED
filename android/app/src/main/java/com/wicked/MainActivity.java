@@ -1,6 +1,8 @@
 package com.wicked;
 
 import com.facebook.react.ReactActivity;
+import com.oblador.vectoricons.VectorIconsPackage;
+import ca.jaysoo.extradimensions.ExtraDimensionsPackage;
 
 public class MainActivity extends ReactActivity {
 
