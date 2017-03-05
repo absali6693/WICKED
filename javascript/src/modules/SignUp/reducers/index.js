@@ -7,49 +7,42 @@ import {
   GET_PRODUCT_FAILURE,
 } from '../actions/SignUpActionTypes';
 
+export type User = {
+  male?: bool,
+  image?: string,
+  dob?: string,
+  email?: string,
+  number?: number,
+  name?: string,
+};
+
 const initialState = {
   count: 0,
   isLoading: false,
   product: [],
+  male: true,
+  image: null,
+  dob: null,
+  email: "",
+  name: "",
+  number: null
 };
 
-function Count(state = initialState, action) {
+export default (state = initialState, action) => {
   if (action.type === 'undefined') {
     return state;
   }
 
   switch (action.type) {
-    case INCREMENT:
-      return { count: state.count + 1 };
-
-    case DECREMENT:
-      return { count: state.count - 1 };
-
-    case GET_PRODUCT_REQUEST:
+    
+    case "FORM_SET_TEXT":
       return {
         ...state,
-        isLoading: true,
+        [action.field]: action.value,
+        error: undefined
       };
-
-    case GET_PRODUCT_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        product: action.data,
-      };
-
-    case GET_PRODUCT_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-      };
-
-    case RESET:
-      return initialState;
 
     default:
       return state;
   }
 }
-
-export default Count;

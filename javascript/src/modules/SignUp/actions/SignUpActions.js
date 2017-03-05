@@ -15,3 +15,11 @@ export const decrement = () => ({
 export const reset = () => ({
   type: RESET,
 });
+
+export type FormField = "name" | "image" | "dob" | "email" | "number" | "male";
+
+export const setFormValue = (field: FormField, value: any) => ({
+	type: "FORM_SET_TEXT",
+	field,
+	value
+});
