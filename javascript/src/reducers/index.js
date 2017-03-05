@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import count from '../modules/SignUp/reducers';
+import SignUp from '../modules/SignUp/reducers';
 
 // Import and map reducers with a key here.
 
 const reducers = {
-  count,
+  SignUp,
 };
 
 export default combineReducers(reducers);
